@@ -7,7 +7,7 @@
  * version: 1.2.0
  * 
  * @author Putra Sudaryanto <putra@sudaryanto.id>
- * @copyright Copyright (c) 2012 Ommu Platform (ommu.co)
+ * @copyright Copyright (c) 2012 Ommu Platform (opensource.ommu.co)
  * @link https://github.com/ommu/Core
  * @contact (+62)856-299-4114
  *
@@ -86,7 +86,6 @@ class OauthIdentity extends OUserIdentity
 	{
 		$this->_id = $user->user_id;
 		$this->setState('level', $user->level_id);
-		$this->setState('profile', $user->profile_id);
 		$this->setState('language', $user->language_id);
 		$this->email = $user->email;
 		$this->setState('username', $record->username);

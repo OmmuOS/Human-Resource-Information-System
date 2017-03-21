@@ -6,7 +6,7 @@
  * version: 1.2.0
  * 
  * @author Putra Sudaryanto <putra@sudaryanto.id>
- * @copyright Copyright (c) 2012 Ommu Platform (ommu.co)
+ * @copyright Copyright (c) 2012 Ommu Platform (opensource.ommu.co)
  * @link https://github.com/ommu/Core
  * @contact (+62)856-299-4114
  *
@@ -38,7 +38,6 @@ class UserIdentity extends CUserIdentity
 		else {
 			$this->_id = $record->user_id;
 			$this->setState('level', $record->level_id);
-			$this->setState('profile', $record->profile_id);
 			$this->setState('language', $record->language_id);
 			$this->email = $record->email;
 			$this->setState('username', $record->username);
