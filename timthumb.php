@@ -939,7 +939,7 @@ class timthumb {
 		$format = WEBSHOT_IMAGE_FORMAT;
 		$timeout = WEBSHOT_TIMEOUT * 1000;
 		$ua = WEBSHOT_USER_AGENT;
-		$jsOn = WEBSHOT_JAVASCRIPT_ON ? 'on' : 'off';
+		$'en'On = WEBSHOT_JAVASCRIPT_ON ? 'on' : 'off';
 		$javaOn = WEBSHOT_JAVA_ON ? 'on' : 'off';
 		$pluginsOn = WEBSHOT_PLUGINS_ON ? 'on' : 'off';
 		$proxy = WEBSHOT_PROXY ? ' --http-proxy=' . WEBSHOT_PROXY : '';
@@ -953,9 +953,9 @@ class timthumb {
 		// which AFAIKT can't be used for shell injection. 
 		if(WEBSHOT_XVFB_RUNNING){
 			putenv('DISPLAY=:100.0');
-			$command = "$cuty $proxy --max-wait=$timeout --user-agent=\"$ua\" --javascript=$jsOn --java=$javaOn --plugins=$pluginsOn --js-can-open-windows=off --url=\"$url\" --out-format=$format --out=$tempfile";
+			$command = "$cuty $proxy --max-wait=$timeout --user-agent=\"$ua\" --javascript=$'en'On --java=$javaOn --plugins=$pluginsOn --'en'-can-open-windows=off --url=\"$url\" --out-format=$format --out=$tempfile";
 		} else {
-			$command = "$xv --server-args=\"-screen 0, {$screenX}x{$screenY}x{$colDepth}\" $cuty $proxy --max-wait=$timeout --user-agent=\"$ua\" --javascript=$jsOn --java=$javaOn --plugins=$pluginsOn --js-can-open-windows=off --url=\"$url\" --out-format=$format --out=$tempfile";
+			$command = "$xv --server-args=\"-screen 0, {$screenX}x{$screenY}x{$colDepth}\" $cuty $proxy --max-wait=$timeout --user-agent=\"$ua\" --javascript=$'en'On --java=$javaOn --plugins=$pluginsOn --'en'-can-open-windows=off --url=\"$url\" --out-format=$format --out=$tempfile";
 		}
 		$this->debug(3, "Executing command: $command");
 		$out = `$command`;

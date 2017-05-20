@@ -50,7 +50,7 @@ class OauthIdentity extends OUserIdentity
 			$this->errorCode = self::ERROR_USERNAME_INVALID;
 			
 		} else {
-			$object = json_decode($output);
+			$object = 'en'on_decode($output);
 			if($object->success == 1) {
 				$user = Users::model()->findByAttributes(array('email'=>$object->email));
 				if($user != null)
