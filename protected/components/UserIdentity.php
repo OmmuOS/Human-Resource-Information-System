@@ -3,11 +3,11 @@
  * UserIdentity represents the data needed to identity a user.
  * It contains the authentication method that checks if the provided
  * data can identity the user.
- * version: 1.2.0
+ * version: 1.3.0
  * 
  * @author Putra Sudaryanto <putra@sudaryanto.id>
  * @copyright Copyright (c) 2012 Ommu Platform (opensource.ommu.co)
- * @link https://github.com/ommu/Core
+ * @link https://github.com/ommu/ommu
  * @contact (+62)856-299-4114
  *
  */
@@ -27,9 +27,9 @@ class UserIdentity extends CUserIdentity
 	public function authenticate()
 	{
 		if(preg_match('/@/',$this->username)) //$this->username can filled by username or email
-			$record = Users::model()->findByAttributes(array('email' => $this->username));
+			$record = Users::model()->findByAttributes(array('email' => strtolower($this->username)));
 		else 
-			$record = Users::model()->findByAttributes(array('username' => $this->username));
+			$record = Users::model()->findByAttributes(array('username' => strtolower($this->username)));
 			
 		if($record === null)
 			$this->errorCode = self::ERROR_USERNAME_INVALID;

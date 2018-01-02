@@ -7,7 +7,7 @@
  *
  * @author Putra Sudaryanto <putra.sudaryanto@gmail.com>
  * @copyright Copyright (c) 2012 Ommu Platform (opensource.ommu.co)
- * @link https://github.com/ommu/Core
+ * @link https://github.com/ommu/ommu
  * @contact (+62)856-299-4114
  *
  */
@@ -19,7 +19,7 @@ return array(
 		'adminEmail'=>'support@ommu.co',
 		'primaryLang' => 'id',
 		'translateLangs' => array(
-			'en_us' => 'en_us',
+			'en' => 'en',
 			'id' => 'id',
 		),
 		

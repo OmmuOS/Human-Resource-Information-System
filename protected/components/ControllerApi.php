@@ -2,11 +2,11 @@
 /**
  * ControllerApi is the customized base controller api class.
  * All controller api classes for this application should extend from this base class.
- * version: 1.2.0
+ * version: 1.3.0
  * 
  * @author Putra Sudaryanto <putra@sudaryanto.id>
  * @copyright Copyright (c) 2016 Ommu Platform (opensource.ommu.co)
- * @link https://github.com/ommu/Core
+ * @link https://github.com/ommu/ommu
  * @contact (+62)856-299-4114
  *
  */
@@ -14,12 +14,12 @@
 class ControllerApi extends Controller
 {
     /**
-     * convert array to 'en'on
+     * convert array to json
      * @param array $data
      */
     public function renderJson($data, $encode=true) {
         $this->layout = false;
-        header('Content-Type: application/'en'on');
+        header('Content-Type: application/json');
 		if($encode)
         	echo CJSON::encode($data);
 		else

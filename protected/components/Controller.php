@@ -2,11 +2,11 @@
 /**
  * Controller is the customized base controller class.
  * All controller classes for this application should extend from this base class.
- * version: 1.2.0
+ * version: 1.3.0
  * 
  * @author Putra Sudaryanto <putra@sudaryanto.id>
  * @copyright Copyright (c) 2012 Ommu Platform (opensource.ommu.co)
- * @link https://github.com/ommu/Core
+ * @link https://github.com/ommu/ommu
  * @contact (+62)856-299-4114
  *
  */
@@ -19,7 +19,12 @@ $currentModule = strtolower(Yii::app()->controller->module->id.'/'.Yii::app()->c
 $currentModuleAction = strtolower(Yii::app()->controller->module->id.'/'.Yii::app()->controller->id.'/'.Yii::app()->controller->action->id);
 
 class Controller extends CController
-{
+{	
+	// getAssetsUrl()
+	//	return the URL for this core's assets, performing the publish operation
+	//	the first time, and caching the result for subsequent use.
+	private $_assetsUrl;
+	
 	/**
 	 * @var string the default layout for the controller view. Defaults to '//layouts/column1',
 	 * meaning using a single column layout. See 'protected/views/layouts/column1.php'.
@@ -151,7 +156,7 @@ class Controller extends CController
 				Yii::app()->session['theme_active'] = Yii::app()->theme->name;
 				if($this->dialogDetail == true)
 					Yii::app()->session['current_url'] = $this->dialogGroundUrl;
-			} */			
+			} */
 			
 			parent::render($view, $data, $return);
 		}
@@ -213,7 +218,7 @@ class Controller extends CController
 			
 		} else {
 			$this->pageDescription = $pageDescription;
-			$this->pageMeta = $pageMeta;			
+			$this->pageMeta = $pageMeta;
 		}
 		$this->pageTitle = $this->pageTitle ? $this->pageTitle : 'Titlenya Lupa..';
 				
@@ -231,8 +236,10 @@ class Controller extends CController
 		// set theme settings
 		if($this->theme == null)
 			$theme = $this->theme = Yii::app()->theme->name;
-		$themeInfo = Utility::getArrayFromYML(Yii::getPathOfAlias('webroot.themes.'.$theme).'/'.$theme.'.yaml');
+		$themeInfo = Utility::getThemeInfo($theme);
+		//print_r($themeInfo);
 		$themeSetting = $themeInfo['settings'];
+		//print_r($themeSetting);
 		$this->themeSetting = $themeSetting;
 		
 		return true;
@@ -254,5 +261,13 @@ class Controller extends CController
 		} else {
 			$this->render('application.webs.site.front_error', $error);
 		}
+	}
+ 
+	public function getAssetsUrl()
+	{
+		if ($this->_assetsUrl === null)
+			$this->_assetsUrl = Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias('application.ommu.assets'));
+		
+		return $this->_assetsUrl;
 	}
 }

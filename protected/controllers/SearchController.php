@@ -2,7 +2,7 @@
 /**
  * SearchController
  * @var $this SearchController
- * version: 1.2.0
+ * version: 1.3.0
  * Reference start
  *
  * TOC :
@@ -14,7 +14,7 @@
  *
  * @author Putra Sudaryanto <putra@sudaryanto.id>
  * @copyright Copyright (c) 2016 Ommu Platform (opensource.ommu.co)
- * @link https://github.com/ommu/Core
+ * @link https://github.com/ommu/ommu
  * @contact (+62)856-299-4114
  *
  *----------------------------------------------------------------------------------------------------------
@@ -40,7 +40,7 @@ class SearchController extends Controller
 		$this->layout = $arrThemes['layout'];
 		
 		//load Lucene Library
-		Yii::import('application.vendors.*');
+		Yii::import('application.vendor.*');
 		require_once('Zend/Search/Lucene.php');
 		parent::init();
 	}
@@ -139,10 +139,10 @@ class SearchController extends Controller
 				$query = Zend_Search_Lucene_Search_QueryParser::parse($term);
 		
 				$this->pageTitleShow = true;
-				$this->pageTitle = 'Hasil Pencarian: '.$_GET['keyword'];
+				$this->pageTitle = Yii::t('phrase', 'Hasil Pencarian: $keyword', array('$keyword'=>$_GET['keyword']));
 				$this->pageDescription = '';
 				$this->pageMeta = '';				
-				$this->render('application.webs.search.front_result', compact(
+				$this->render('front_result', compact(
 					'results', 
 					'term', 
 					'query'
