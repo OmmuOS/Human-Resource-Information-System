@@ -27,7 +27,21 @@ return array(
 		'timthumb_url_replace' => 0,
 		'timthumb_url_replace_website' => 'http://ommu.co',	//default http
 		// access system *from product
-		'product_access_system' => 'ommu.co.core',
+		'product_access_system' => 'ommu.co',
+
+		// grid-view setting
+		'grid-view' => array(
+			'pageSize' => 50,
+		),
+	
+		// debug parameter
+		'debug' => array(
+			'send_email' => array(
+				'status' => true,	// boolean
+				'content' => 'send_email',	// file_put_contents, send_email
+				'email'	=> 'putra.sudaryanto@gmail.com',
+			),
+		),
 	),
 );
 ?>

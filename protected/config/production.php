@@ -27,6 +27,8 @@ return array(
 
 	// autoloading model and component classes
 	'import'=>array(
+		'system.vendors.zend-escaper.*',
+
 		// Model
 		'application.models.*',
 		'application.libraries.core.models.*',
@@ -38,12 +40,15 @@ return array(
 
 		// Module Model
 		'application.vendor.ommu.report.models.*',
+		'application.vendor.ommu.report.models.view.*',
 		'application.vendor.ommu.support.models.*',
-		'application.vendor.ommu.users.models.Users',
-		'application.vendor.ommu.users.models.UserLevel',
-		'application.vendor.ommu.users.models.view.ViewUsers',
+		'application.vendor.ommu.support.models.view.*',
+		'application.vendor.ommu.users.models.*',
+		'application.vendor.ommu.users.models.view.*',
 
 		// Module Components
+		'application.vendor.ommu.report.components.*',
+		'application.vendor.ommu.support.components.*',
 		'application.vendor.ommu.users.components.*',
 	),
 
@@ -57,6 +62,11 @@ return array(
 		//Ommu module/plugin handle
 		'moduleHandle' => array(
 			'class' => 'application.libraries.core.ommu.ModuleHandle'
+		),
+		
+		//Ommu theme handle
+		'themeHandle' => array(
+			'class' => 'application.libraries.core.ommu.ThemeHandle'
 		),
 
 		//move core message yii to protected
@@ -77,7 +87,7 @@ return array(
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
-        ),
+		),
 
 		'log'=>array(
 			'class'=>'CLogRouter',
