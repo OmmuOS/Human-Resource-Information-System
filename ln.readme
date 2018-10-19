@@ -35,7 +35,7 @@ ln -sf "/Users/putrasudaryanto/htdocs/project_ommu_module/module_banner" "/Users
 
 
 ///themes///
-ln -sf "/Users/putrasudaryanto/htdocs/project_ommu_theme/ommu_backoffice" "/Users/putrasudaryanto/htdocs/_product/oos_hris/themes/ommu"
+ln -sf "/Users/putrasudaryanto/htdocs/project_ommu_theme/backoffice" "/Users/putrasudaryanto/htdocs/_product/oos_hris/themes/backoffice"
 
 ///dora///
 ln -sf "/Users/putrasudaryanto/htdocs/project_ommu_theme/Dora" "/Users/putrasudaryanto/htdocs/_product/oos_hris/themes/dora"
